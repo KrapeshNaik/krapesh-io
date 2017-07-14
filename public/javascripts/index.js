@@ -1,4 +1,4 @@
-(function() {
+(function () {
     var config = {
         apiKey: "AIzaSyBK4rmrHzJU4473G8EEocgkRntes6WdohQ",
         authDomain: "https://krapesh-723c7.firebaseapp.com",
@@ -12,32 +12,18 @@
 
     messaging
         .requestPermission()
-        .then(function() {
+        .then(function () {
             console.log('Granted');
+            return messaging.getToken();
         })
-        .catch(function(err) {
+        .then(function (token) {
+            console.log(token);
+        })
+        .catch(function (err) {
             console.log(err);
         });
 
-    // get token
-    messaging
-        .getToken()
-        .then(function(currentToken) {
-            if (currentToken) {
-                console.log('TOKEN', currentToken);
-                sendTokenToServer(currentToken);
-                updateUIForPushEnabled(currentToken);
-            } else {
-                // Show permission request.
-                console.log('No Instance ID token available. Request permission to generate one.');
-                // Show permission UI.
-                updateUIForPushPermissionRequired();
-                setTokenSentToServer(false);
-            }
-        })
-        .catch(function(err) {
-            console.log('An error occurred while retrieving token. ', err);
-            showToken('Error retrieving Instance ID token. ', err);
-            setTokenSentToServer(false);
-        });
+    messaging.onMessage(function (payload) {
+        console.log('message');
+    });
 })();
