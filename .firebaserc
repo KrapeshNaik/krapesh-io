@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "krapesh-723c7"
+    "default": "krapesh-723c7",
+    "krapesh": "krapesh-723c7"
   }
 }
