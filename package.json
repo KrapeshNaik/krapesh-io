@@ -1,0 +1,27 @@
+{
+  "name": "krapesh-io",
+  "version": "1.0.0",
+  "description": "about myself",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config build/webpack.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krapesh-dev/krapesh-io.git"
+  },
+  "keywords": [
+    "krapesh",
+    "io"
+  ],
+  "author": "krapesh naik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krapesh-dev/krapesh-io/issues"
+  },
+  "homepage": "https://github.com/krapesh-dev/krapesh-io#readme",
+  "devDependencies": {
+    "webpack": "^3.3.0"
+  }
+}
