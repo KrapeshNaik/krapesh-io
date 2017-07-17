@@ -4,7 +4,8 @@
   "description": "about myself",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config build/webpack.js",
+    "lint": "eslint --init",
+    "build": "webpack --config build/webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,9 @@
   },
   "homepage": "https://github.com/krapesh-dev/krapesh-io#readme",
   "devDependencies": {
+    "eslint": "^4.2.0",
+    "eslint-plugin-react": "^7.1.0",
+    "html-webpack-plugin": "^2.29.0",
     "webpack": "^3.3.0"
   }
 }
