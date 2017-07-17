@@ -1,15 +1,13 @@
-// Give the service worker access to Firebase Messaging.
-// Note that you can only use Firebase Messaging here, other Firebase libraries
-// are not available in the service worker.
+// necessary libs
 importScripts('https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/3.9.0/firebase-messaging.js');
+importScripts('https://unpkg.com/workbox-sw@0.0.2/build/importScripts/workbox-sw.dev.v0.0.2.js');
 
 // Initialize the Firebase app in the service worker by passing in the
 // messagingSenderId.
-var config = {
-    messagingSenderId: "114891145688",
-};
-firebase.initializeApp(config);
+firebase.initializeApp({
+    messagingSenderId: '114891145688'
+});
 
 // Retrieve an instance of Firebase Messaging so that it can handle background
 // messages.
@@ -26,3 +24,12 @@ messaging.setBackgroundMessageHandler(function (payload) {
 
     return self.registration.showNotification(notifTitle, notifOptions);
 });
+
+// Create an instance of WorkboxSW.
+const workboxSW = new WorkboxSW({
+    clientsClaim: true
+});
+
+// DO NOT CREATE OR UPDATE THIS LIST BY HAND!
+// Instead, add one of their (WorkboxSW) tools
+workboxSW.precache([]);

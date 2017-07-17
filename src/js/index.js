@@ -10,20 +10,26 @@
 
     const messaging = firebase.messaging();
 
-    messaging
-        .requestPermission()
-        .then(function () {
-            console.log('Granted');
-            return messaging.getToken();
-        })
-        .then(function (token) {
-            document.write(token);
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
+    navigator.serviceWorker
+        .register('./service-worker.js')
+        .then((registration) => {
+            messaging.useServiceWorker(registration);
 
-    messaging.onMessage(function (payload) {
-        console.log('message');
-    });
+            messaging
+                .requestPermission()
+                .then(function () {
+                    console.log('Granted');
+                    return messaging.getToken();
+                })
+                .then(function (token) {
+                    document.write(token);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+
+            messaging.onMessage(function (payload) {
+                console.log('message');
+            });
+        });
 })();
