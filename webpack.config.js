@@ -2,10 +2,11 @@ const path = require('path'),
     HtmlPlugin = require('html-webpack-plugin'),
     CleanPlugin = require('clean-webpack-plugin'),
     CopyPlugin = require('copy-webpack-plugin'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
     WorkboxPlugin = require('workbox-webpack-plugin');
 
-const DIST_DIR = './public/';
-const SRC_DIR = './src/';
+const DIST_DIR = './public/',
+    SRC_DIR = './src/';
 
 // common config
 const config = {
@@ -14,9 +15,7 @@ const config = {
     module: {},
 
     plugins: [
-        new CleanPlugin([
-            'public'
-        ], {
+        new CleanPlugin(['public'], {
             root: __dirname,
             exclude: [],
             verbose: true,
@@ -24,34 +23,79 @@ const config = {
         }),
 
         new CopyPlugin([{
-            from: './precache.txt'
+            from: './css/*'
+        }, {
+            from: './img/*'
         }]),
 
-        // new workboxPlugin({
+        // new WorkboxPlugin({
         //     // globDirectory: DIST_DIR,
         //     // globPatterns: ['**/*.{js}'],
         //     // swDest: path.join(DIST_DIR, 'service-worker.js')
         //     globPatterns: ['**\/*.{html,js,css}'],
-        //     globIgnores: ['admin.html'],
-        //     swSrc: './src/firebase-messaging-sw.js',
-        //     swDest: './public/service-worker.js',
+        //     swSrc: './src/service-worker-base.js',
+        //     swDest: './src/service-worker-built.js',
         // })
     ]
 };
 
-const appConfig = Object.assign({}, config, {
+const ironhideConfig = Object.assign({}, config, {
     entry: [
-        './js/index.js'
+        './js/ironhide/main.js'
     ],
 
     output: {
         path: path.join(__dirname, DIST_DIR),
-        filename: 'js/app.js'
+        filename: 'js/ironhide.js'
+    },
+
+    module: {
+        rules: [{
+            test: /\.vue$/,
+            loader: 'vue-loader',
+            options: {
+                loaders: {
+                    js: 'babel-loader',
+                    css: ExtractTextPlugin.extract({
+                        use: 'css-loader',
+                        fallback: 'vue-style-loader'
+                    })
+                }
+            }
+        }]
     },
 
     plugins: [
         new HtmlPlugin({
             template: 'index.html',
+            filename: 'index.html',
+            minify: {
+                html5: true,
+                collapseWhitespace: false,
+                removeComments: true,
+                minifyCSS: false,
+                minifyJS: false
+            }
+        }),
+
+        new ExtractTextPlugin('css/styles.css')
+    ]
+});
+
+const appConfig2 = Object.assign({}, config, {
+    entry: [
+        './js/index2.js'
+    ],
+
+    output: {
+        path: path.join(__dirname, DIST_DIR),
+        filename: 'js/app2.js'
+    },
+
+    plugins: [
+        new HtmlPlugin({
+            template: 'app2.html',
+            filename: 'app2.html',
             minify: {
                 html5: true,
                 collapseWhitespace: false,
@@ -64,16 +108,17 @@ const appConfig = Object.assign({}, config, {
 });
 
 const swConfig = Object.assign({}, config, {
-    entry: './service-worker.js',
+    entry: './service-worker-base.js',
 
     output: {
         path: path.join(__dirname, DIST_DIR),
-        filename: '[name].js'
+        filename: 'sw.js'
     }
 });
 
 // return array of configs
 module.exports = [
-    appConfig,
+    ironhideConfig,
+    appConfig2,
     swConfig
 ];

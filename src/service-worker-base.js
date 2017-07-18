@@ -33,3 +33,32 @@ const workboxSW = new WorkboxSW({
 // DO NOT CREATE OR UPDATE THIS LIST BY HAND!
 // Instead, add one of their (WorkboxSW) tools
 workboxSW.precache([]);
+
+// Set up a route that will match any URL requested that ends in .txt
+workboxSW.router.registerRoute(
+    '/',
+    workboxSW.strategies.cacheFirst({
+        cacheName: 'shell',
+        cacheExpiration: {
+            maxEntries: 1,
+            maxAgeSeconds: 60 * 60
+        },
+        cacheableResponse: {
+            statuses: [0, 200]
+        }
+    })
+);
+
+workboxSW.router.registerRoute(
+    '/app2',
+    workboxSW.strategies.cacheFirst({
+        cacheName: 'shell',
+        cacheExpiration: {
+            maxEntries: 1,
+            maxAgeSeconds: 60 * 60
+        },
+        cacheableResponse: {
+            statuses: [0, 200]
+        }
+    })
+);

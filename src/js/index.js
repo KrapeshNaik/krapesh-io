@@ -1,3 +1,5 @@
+import app from './vue';
+
 (function () {
     var config = {
         apiKey: 'AIzaSyBK4rmrHzJU4473G8EEocgkRntes6WdohQ',
@@ -11,7 +13,7 @@
     const messaging = firebase.messaging();
 
     navigator.serviceWorker
-        .register('./service-worker.js')
+        .register('./sw.js')
         .then((registration) => {
             messaging.useServiceWorker(registration);
 
@@ -22,14 +24,14 @@
                     return messaging.getToken();
                 })
                 .then(function (token) {
-                    document.write(token);
+                    document.querySelector('#token').innerHTML = token;
                 })
                 .catch(function (err) {
                     console.log(err);
                 });
 
             messaging.onMessage(function (payload) {
-                console.log('message');
+                console.log('message', payload);
             });
         });
 })();
