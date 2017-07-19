@@ -1,16 +1,31 @@
 <template>
-    <div class="animated flipInX" id="app">
-        <hello></hello>
+    <div>
+        <div class="pure-menu pure-menu-horizontal">
+            <a href="#" class="pure-menu-heading pure-menu-link">BRAND</a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item">
+                    <a href="#" class="pure-menu-link">News</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a href="#" class="pure-menu-link">Sports</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a href="#" class="pure-menu-link">Finance</a>
+                </li>
+            </ul>
+        </div>
+    
+        <profile></profile>
     </div>
 </template>
 
 <script>
-import Hello from './components/Hello.vue'
+import Profile from './views/Profile.vue'
 
 export default {
     name: 'app',
     components: {
-        Hello
+        Profile
     }
 }
 </script>
@@ -24,7 +39,7 @@ html {
 body {
     min-height: 100%;
     max-width: 100%;
-    background-color: #f5f5d9;
+    background-color: #607D8B;
 }
 
 #app {
@@ -32,9 +47,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
-    background-color: #FFFFFF;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.41);
-    margin: 2em;
+    margin: 1em;
     text-align: center;
     color: #2c3e50;
 }

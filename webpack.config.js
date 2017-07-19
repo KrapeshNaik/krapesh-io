@@ -6,7 +6,8 @@ const path = require('path'),
     WorkboxPlugin = require('workbox-webpack-plugin');
 
 const DIST_DIR = './public/',
-    SRC_DIR = './src/';
+    SRC_DIR = './src/',
+    IRONHIDE_ROOT = path.join(SRC_DIR, 'js', 'ironhide');
 
 // common config
 const config = {
@@ -41,7 +42,8 @@ const config = {
 
 const ironhideConfig = Object.assign({}, config, {
     entry: [
-        './js/ironhide/main.js'
+        // './js/libs/director.js',
+        './js/index.js'
     ],
 
     output: {
@@ -49,20 +51,12 @@ const ironhideConfig = Object.assign({}, config, {
         filename: 'js/ironhide.js'
     },
 
-    module: {
-        rules: [{
-            test: /\.vue$/,
-            loader: 'vue-loader',
-            options: {
-                loaders: {
-                    js: 'babel-loader',
-                    css: ExtractTextPlugin.extract({
-                        use: 'css-loader',
-                        fallback: 'vue-style-loader'
-                    })
-                }
-            }
-        }]
+    resolve: {
+        enforceExtension: false,
+        extensions: ['.js'],
+        alias: {
+            '_appRoot_': IRONHIDE_ROOT
+        }
     },
 
     plugins: [

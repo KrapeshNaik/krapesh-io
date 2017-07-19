@@ -1,37 +1,44 @@
-import app from './vue';
+'use strict';
 
-(function () {
-    var config = {
-        apiKey: 'AIzaSyBK4rmrHzJU4473G8EEocgkRntes6WdohQ',
-        authDomain: 'https://krapesh-723c7.firebaseapp.com',
-        databaseURL: 'https://krapesh-723c7.firebaseio.com/',
-        storageBucket: 'gs://krapesh-723c7.appspot.com/',
-        messagingSenderId: '114891145688',
-    };
-    firebase.initializeApp(config);
+import director from 'director';
+import routes from './router/';
 
-    const messaging = firebase.messaging();
+// var config = {
+//     apiKey: 'AIzaSyBK4rmrHzJU4473G8EEocgkRntes6WdohQ',
+//     authDomain: 'https://krapesh-723c7.firebaseapp.com',
+//     databaseURL: 'https://krapesh-723c7.firebaseio.com/',
+//     storageBucket: 'gs://krapesh-723c7.appspot.com/',
+//     messagingSenderId: '114891145688',
+// };
+// firebase.initializeApp(config);
 
-    navigator.serviceWorker
-        .register('./sw.js')
-        .then((registration) => {
-            messaging.useServiceWorker(registration);
+// const messaging = firebase.messaging();
 
-            messaging
-                .requestPermission()
-                .then(function () {
-                    console.log('Granted');
-                    return messaging.getToken();
-                })
-                .then(function (token) {
-                    document.querySelector('#token').innerHTML = token;
-                })
-                .catch(function (err) {
-                    console.log(err);
-                });
+// navigator.serviceWorker
+//     .register('./sw.js')
+//     .then((registration) => {
+//         messaging.useServiceWorker(registration);
 
-            messaging.onMessage(function (payload) {
-                console.log('message', payload);
-            });
-        });
-})();
+//         messaging
+//             .requestPermission()
+//             .then(function () {
+//                 console.log('Granted');
+//                 return messaging.getToken();
+//             })
+//             .then(function (token) {
+//                 document.querySelector('#token').innerHTML = token;
+//             })
+//             .catch(function (err) {
+//                 console.log(err);
+//             });
+
+//         messaging.onMessage(function (payload) {
+//             console.log('message', payload);
+//         });
+//     });
+
+// 1.
+// var router = Router().init();
+var router = new director.Router(routes).configure({
+    html5history: true
+});

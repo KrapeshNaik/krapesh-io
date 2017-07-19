@@ -1,9 +1,9 @@
 <template>
-    <div class="hello">
+    <div class="profile">
         <div class="card">
             <div class="pure-g">
-                <div class="avatar pure-u-1 pure-u-md-1-2">
-                    <img class="pure-img" src="https://vuejs.org/images/logo.png">
+                <div class="avatar-cont pure-u-1 pure-u-md-1-2">
+                    <div class="avatar pure-img"></div>
                 </div>
                 <div class="summary pure-u-1 pure-u-md-1-2">
                     <div class="pure-u-1-1">
@@ -26,24 +26,27 @@
 
 <script>
 export default {
-    name: 'hello',
-    data() {
-        return {
-            msg: 'Hello Vue'
-        }
-    }
+    name: 'profile-card'
 }
 </script>
 
 <style scoped>
-.avatar {
-    padding: 1em;
+.card {
+    background-color: #f1f1f1;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.41);
+    padding: 2em;
 }
 
-.avatar img {
+.avatar-cont {
+    margin-bottom: 25px;
+    height: 8em;
+}
+
+.avatar {
     margin: 0 auto;
     border-radius: 50%;
-    background-color: aqua;
-    width: 45%;
+    width: 8em;
+    height: 8em;
+    background-color: #CFD8DC;
 }
 </style>
