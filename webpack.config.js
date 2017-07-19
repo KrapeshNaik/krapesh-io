@@ -9,6 +9,12 @@ const DIST_DIR = './public/',
     SRC_DIR = './src/',
     IRONHIDE_ROOT = path.join(SRC_DIR, 'js', 'ironhide');
 
+// sass
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css",
+    disable: process.env.NODE_ENV === "development"
+});
+
 // common config
 const config = {
     context: path.join(__dirname, SRC_DIR),
@@ -42,7 +48,6 @@ const config = {
 
 const ironhideConfig = Object.assign({}, config, {
     entry: [
-        // './js/libs/director.js',
         './js/index.js'
     ],
 
@@ -59,6 +64,26 @@ const ironhideConfig = Object.assign({}, config, {
         }
     },
 
+    module: {
+        rules: [
+            {
+                test: /\.(html)$/,
+                use: {
+                    loader: 'html-loader',
+                    options: {
+                        attrs: [':data-src']
+                    }
+                }
+            },
+            {
+                test: /\.scss$/,
+                use: {
+                    loader: 'sass-loader'
+                }
+            }
+        ]
+    },
+
     plugins: [
         new HtmlPlugin({
             template: 'index.html',
@@ -72,7 +97,7 @@ const ironhideConfig = Object.assign({}, config, {
             }
         }),
 
-        new ExtractTextPlugin('css/styles.css')
+        extractSass
     ]
 });
 

@@ -1,7 +1,7 @@
-import ProfileHTML from '../components/Profile.Component.js';
+import ProfileHTML from '../components/Profile.Component.html';
 
 const ProfileHandler = () => {
-    document.querySelector('#router-view').innerHTML = ProfileHTML();
+    document.querySelector('#router-view').innerHTML = ProfileHTML;
 };
 
 export default ProfileHandler;
