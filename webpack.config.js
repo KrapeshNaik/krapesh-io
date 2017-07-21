@@ -33,7 +33,10 @@ const config = {
             from: './css/*'
         }, {
             from: './img/*'
-        }]),
+        }, {
+            from: './index.html'
+        }
+        ]),
 
         // new WorkboxPlugin({
         //     // globDirectory: DIST_DIR,
@@ -65,8 +68,7 @@ const ironhideConfig = Object.assign({}, config, {
     },
 
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.(html)$/,
                 use: {
                     loader: 'html-loader',
@@ -82,23 +84,7 @@ const ironhideConfig = Object.assign({}, config, {
                 }
             }
         ]
-    },
-
-    plugins: [
-        new HtmlPlugin({
-            template: 'index.html',
-            filename: 'index.html',
-            minify: {
-                html5: true,
-                collapseWhitespace: false,
-                removeComments: true,
-                minifyCSS: false,
-                minifyJS: false
-            }
-        }),
-
-        extractSass
-    ]
+    }
 });
 
 const appConfig2 = Object.assign({}, config, {

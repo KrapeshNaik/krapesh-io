@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html amp>
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
     <title>K IO</title>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="canonical" href="https://krapesh-723c7.firebaseapp.com/">
+    <link rel="amphtml" href="https://krapesh-723c7.firebaseapp.com/">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
-        crossorigin="anonymous">
+        crossorigin="anonymous"> -->
     <!-- update the version number as needed -->
     <!-- <script defer src="/__/firebase/4.0.0/firebase-app.js"></script> -->
     <!-- include only the Firebase features as you need -->
@@ -19,25 +23,143 @@
     <script defer src="/__/firebase/4.0.0/firebase-storage.js"></script> -->
     <!-- initialize the SDK after all desired features are loaded -->
     <!-- <script defer src="/__/firebase/init.js"></script> -->
-    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script> -->
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+    </style>
+    <noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+    <style amp-custom>
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        .animated.infinite {
+            animation-iteration-count: infinite;
+        }
+
+        .animated.hinge {
+            animation-duration: 2s;
+        }
+
+        .animated.flipOutX,
+        .animated.flipOutY,
+        .animated.bounceIn,
+        .animated.bounceOut {
+            animation-duration: .75s;
+        }
+
+        @keyframes flipInX {
+            from {
+                transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+                animation-timing-function: ease-in;
+                opacity: 0;
+            }
+
+            40% {
+                transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+                animation-timing-function: ease-in;
+            }
+
+            60% {
+                transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+                opacity: 1;
+            }
+
+            80% {
+                transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+            }
+
+            to {
+                transform: perspective(400px);
+            }
+        }
+
+        .flipInX {
+            backface-visibility: visible;
+            animation-name: flipInX;
+        }
+    </style>
+
+    <style amp-custom>
+        .avatar-cont {
+            height: 200px;
+            background-color: blueviolet;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="pure-menu pure-menu-horizontal">
-        <a href="/" class="pure-menu-heading pure-menu-link">IO</a>
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item">
-                <a href="#/app" class="pure-menu-link">News</a>
-            </li>
-            <li class="pure-menu-item">
-                <a href="#/sports" class="pure-menu-link">Sports</a>
-            </li>
-            <li class="pure-menu-item">
-                <a href="#/finance" class="pure-menu-link">Finance</a>
-            </li>
-        </ul>
+    <div class="profile animated flipInX">
+        <div class="avatar">
+
+        </div>
+
+        <div class="summary"></div>
+
+        <div class="stuffs"></div>
+
+        <div class="links"></div>
     </div>
-    <div id="router-view"></div>
 </body>
 
 </html>
