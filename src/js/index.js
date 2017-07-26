@@ -1,8 +1,9 @@
 'use strict';
 
-import director from 'director';
-import routes from './router/';
+// import director from 'director';
+// import routes from './router/';
 
+import page from './router.js';
 // var config = {
 //     apiKey: 'AIzaSyBK4rmrHzJU4473G8EEocgkRntes6WdohQ',
 //     authDomain: 'https://krapesh-723c7.firebaseapp.com',
@@ -39,6 +40,6 @@ import routes from './router/';
 
 // 1.
 // var router = Router().init();
-var router = new director.Router(routes).configure({
-    html5history: true
-});
+// var router = new director.Router(routes).configure({
+//     html5history: true
+// });

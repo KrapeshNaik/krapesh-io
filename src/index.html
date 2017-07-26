@@ -3,10 +3,22 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="application-name" content="Krapesh Naik">
+    <meta name="apple-mobile-web-app-title" content="Krapesh Naik">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/krapesh72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/krapesh144.png">
+    <link rel="apple-touch-startup-image" href="img/splash-startup.png">
+    <meta name="msapplication-starturl" content="/">
+
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <title>K IO</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <title>Krapesh Naik</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zilla+Slab">
     <link rel="canonical" href="https://krapesh-723c7.firebaseapp.com/">
     <link rel="amphtml" href="https://krapesh-723c7.firebaseapp.com/">
     <!-- <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
@@ -108,53 +120,88 @@
             animation-duration: .75s;
         }
 
-        @keyframes flipInX {
+        @keyframes fadeIn {
             from {
-                transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-                animation-timing-function: ease-in;
                 opacity: 0;
             }
 
-            40% {
-                transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-                animation-timing-function: ease-in;
-            }
-
-            60% {
-                transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+            to {
                 opacity: 1;
             }
+        }
 
-            80% {
-                transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-            }
+        .fadeIn {
+            animation-name: fadeIn;
+        }
 
-            to {
-                transform: perspective(400px);
-            }
+        body {
+            padding: 1.5em;
+            font-family: 'Zilla Slab', serif;
         }
 
         .flipInX {
             backface-visibility: visible;
             animation-name: flipInX;
         }
-    </style>
 
-    <style amp-custom>
-        .avatar-cont {
-            height: 200px;
-            background-color: blueviolet;
+        .profile {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .avatar .img {
+            width: 8em;
+            height: 8em;
+            background-color: #b7b7b7;
+            border-radius: 50%;
+        }
+
+        .name {
+            font-size: 2em;
+            font-weight: bold;
+            padding: 1em;
+        }
+
+        .name .summary .title a {
+            text-decoration: none;
+            color: #777777;
+        }
+
+        .name .summary .sub-title a {
+            text-decoration: none;
+            color: #e94c53;
+        }
+
+        .summary {
+            padding: 1em;
+            line-height: 1.5em;
+            font-size: .6em;
+            font-weight: normal;
         }
     </style>
 </head>
 
 <body>
-    <div class="profile animated flipInX">
+    <div class="profile animated fadeIn">
         <div class="avatar">
-
+            <amp-img class="img" src="/img/krapesh.png" alt="Welcome" height="100" width="100"></amp-img>
         </div>
 
-        <div class="summary"></div>
+        <div class="name">
+            <span>Krapesh Naik</span>
+            <div class="summary">
+                <div class="title">
+                    <span></span>Technical Lead at
+                    <a href="https://www.redbus.com" target="_blank">redBus</a>
+                </div>
+                <div class="sub-title">
+                    <span>responsible for</span>
+                    <a href="https://www.redbus.in/hotels" target="_blank">Hotels</a>
+                    <span>and</span>
+                    <a href="https://www.redbus.in/pilgrimages" target="_blank">Pilgrimages</a>
+                </div>
+            </div>
+        </div>
 
         <div class="stuffs"></div>
 
