@@ -6,7 +6,7 @@ importScripts('https://unpkg.com/workbox-sw@0.0.2/build/importScripts/workbox-sw
 // Initialize the Firebase app in the service worker by passing in the
 // messagingSenderId.
 firebase.initializeApp({
-    messagingSenderId: '114891145688'
+    messagingSenderId: '878891727254'
 });
 
 // Retrieve an instance of Firebase Messaging so that it can handle background
