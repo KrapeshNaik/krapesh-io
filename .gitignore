@@ -64,4 +64,4 @@ public/
 .firebaserc
 .babelrc
 firebase.json
-gulp.babel.js
+gulpfile.babel.js
