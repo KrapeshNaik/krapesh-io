@@ -20,17 +20,17 @@
     <link rel="amphtml" href="https://www.krapeshnaik.com/">
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
     <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-    <style amp-custom>.animated{animation-duration:1s;animation-fill-mode:both}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.fadeIn{animation-name:fadeIn}body{padding:1.5em;font-family:Voltaire,sans-serif}.profile{text-align:center;margin-top:100px}.avatar .img{width:8em;height:8em;background-color:#b7b7b7;border-radius:50%}.name{font-size:2em;font-weight:700;padding:1em}.name div:first-child{color:#252525}.name .summary .title a{text-decoration:none;color:#777}.name .summary .sub-title a{text-decoration:none;color:#e94c53}.summary{padding:1em;line-height:1.5em;font-size:.6em;font-weight:400;color:#2f2f2f}</style>
+    <style amp-custom>.profile,footer{text-align:center}.animated{animation-duration:1s;animation-fill-mode:both}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.fadeIn{animation-name:fadeIn}body{padding:1.5em;font-family:Voltaire,sans-serif}.profile{margin-top:100px}.avatar .img{width:8em;height:8em;background-color:#b7b7b7;border-radius:50%}.name{font-size:2em;font-weight:700;padding:1em}.name div:first-child{color:#252525}.name .summary .title a{text-decoration:none;color:#777}.name .summary .sub-title a{text-decoration:none;color:#e94c53}.summary{padding:1em;line-height:1.5em;font-size:.6em;font-weight:400;color:#2f2f2f}footer{position:fixed;bottom:0;left:0;width:100%}footer a{text-decoration:none}footer img{width:25px;margin:0 5px}</style>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 </head>
 
 <body>
     <!-- <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-57BNP6W&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics> -->
-    <div class="profile animated fadeIn">
-        <div class="avatar">
+    <section class="profile animated fadeIn">
+        <section class="avatar">
             <amp-img class="img" src="/img/krapesh.png" alt="Krapesh Naik" height="100" width="100"></amp-img>
-        </div>
-        <div class="name">
+        </section>
+        <section class="name">
             <div>Krapesh Naik</div>
             <div class="summary">
                 <div class="title">
@@ -44,8 +44,17 @@
                     <a href="https://www.redbus.in/pilgrimages" target="_blank">Pilgrimages</a>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </section>
+
+    <footer>
+        <a href="https://github.com/krapeshnaik" target="_blank">
+            <img src="/img/github-logo.png" alt="github">
+        </a>
+        <a href="https://www.linkedin.com/in/krapeshnaik/" target="_blank">
+            <img src="/img/linkedin-logo.png" alt="linkedin">
+        </a>
+    </footer>
 </body>
 
 </html>
